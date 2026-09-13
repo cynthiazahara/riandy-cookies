@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riandy Cookies - Homemade With Love</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-amber-50/60 text-stone-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-700 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-cookie-bite"></i>
+                    </div>
+                    <div>
+                        <a href="#home" class="text-xl font-bold tracking-wide text-amber-900 block leading-tight">Riandy Cookies</a>
+                        <p class="text-xs text-amber-700 italic font-medium">Homemade With Love</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 font-medium text-stone-700 text-sm">
+                    <a href="#home" class="hover:text-amber-700 transition py-1 border-b-2 border-transparent hover:border-amber-700">Beranda</a>
+                    <a href="#katalog" class="hover:text-amber-700 transition py-1 border-b-2 border-transparent hover:border-amber-700">Katalog Kue</a>
+                    <a href="#cara-order" class="hover:text-amber-700 transition py-1 border-b-2 border-transparent hover:border-amber-700">Cara Pesan</a>
+                    <a href="#tentang" class="hover:text-amber-700 transition py-1 border-b-2 border-transparent hover:border-amber-700">Tentang Kami</a>
+                    <a href="#kontak" class="hover:text-amber-700 transition py-1 border-b-2 border-transparent hover:border-amber-700">Kontak</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleModal('loginModal')" class="text-xs md:text-sm font-semibold text-stone-700 hover:text-amber-700 transition flex items-center gap-1.5 bg-amber-100/60 px-3.5 py-2 rounded-full">
+                        <i class="fa-solid fa-user text-amber-700"></i> <span class="hidden sm:inline">Masuk</span>
+                    </button>
+                    <button onclick="toggleModal('cartModal')" class="relative bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-full text-xs md:text-sm font-medium transition shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="hidden sm:inline">Keranjang</span>
+                        <span id="cart-count" class="bg-amber-100 text-amber-900 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold ml-1">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. BERANDA (HERO SECTION) -->
+    <section id="home" class="relative bg-gradient-to-b from-amber-100/80 via-amber-50 to-amber-50/60 py-20 md:py-28 px-4 text-center overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-block bg-amber-200/80 text-amber-900 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm border border-amber-300/50">
+                <i class="fa-solid fa-heart text-amber-600 mr-1"></i> Authentic Homemade Taste
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold text-stone-900 mt-2 mb-3 tracking-tight">Riandy Cookies</h1>
+            <p class="text-xl md:text-3xl italic text-amber-800 font-light mb-6 font-serif">"Homemade With Love"</p>
+            <p class="text-base md:text-lg text-stone-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Kue kering lezat dipanggang dengan penuh hangat cinta menggunakan bahan-bahan segar berkualitas pilihan. Tersedia dalam ukuran Toples 300 ml dan 800 ml untuk momen istimewa Anda.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="#katalog" class="bg-amber-700 hover:bg-amber-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-solid fa-cookie"></i> Lihat Katalog Kue
+                </a>
+                <a href="#cara-order" class="bg-white hover:bg-amber-100/50 text-amber-900 border border-amber-300 font-medium px-8 py-3.5 rounded-full shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info"></i> Panduan Pemesanan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. KATALOG KUE & PENCARIAN E-COMMERCE -->
+    <section id="katalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-8">
+            <span class="text-amber-700 font-semibold text-xs uppercase tracking-widest">Pilihan Spesial Bagi Anda</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-1">Katalog Kue Terbaik Kami</h2>
+            <div class="h-1 w-20 bg-amber-600 mx-auto mt-3 rounded-full"></div>
+            <p class="text-stone-600 mt-3 text-sm md:text-base">Silakan pilih varian favorit Anda lengkap dengan pilihan ukuran toples (300 ml & 800 ml)</p>
+        </div>
+
+        <!-- FITUR PENCARIAN STYLE E-COMMERCE (DI ATAS KATALOG) -->
+        <div class="max-w-xl mx-auto mb-12">
+            <div class="relative flex items-center">
+                <input type="text" id="searchInput" onkeyup="filterMenu()" placeholder="Cari kue di Riandy Cookies (misal: Nastar, Nutella Almond, Putri Salju...)" 
+                    class="w-full py-3.5 pl-12 pr-10 bg-white border border-amber-200 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent text-sm text-stone-800 placeholder-stone-400">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 text-amber-600 text-base"></i>
+                <button onclick="clearSearch()" id="clearBtn" class="hidden absolute right-4 text-stone-400 hover:text-stone-600">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </button>
+            </div>
+            <p id="searchResultText" class="text-center text-xs text-stone-500 mt-2.5 hidden"></p>
+        </div>
+
+        <!-- GRID PRODUK / KATALOG KUE -->
+        <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Kue 1: Nastar Klasik -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="nastar klasik nanas toples">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Nastar.jpg" alt="Nastar Klasik" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Best Seller</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Nastar Klasik</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Nastar lembut dengan isian selai nanas homemade yang segar, manis, dan legit.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 90.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Nastar Klasik (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Nastar Klasik (800 ml)', 90000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 2: Kastengel Keju -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="kastengel keju gurih renyah">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Kastengel.jpg" alt="Kastengel Keju" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Favorit</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Kastengel Keju</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Gurihnya keju pilihan melimpah yang dipanggang sempurna, sangat renyah di setiap gigitan.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 95.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Kastengel Keju (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Kastengel Keju (800 ml)', 95000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 3: Nutella Cookies -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="nutella cookies cokelat hazelnut">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Nutellacookies.jpg" alt="Nutella Cookies" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Populer</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Nutella Cookies</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Kombinasi cookies renyah dengan lelehan cokelat Nutella murni yang melimpah di atasnya.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 100.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Nutella Cookies (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Nutella Cookies (800 ml)', 100000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 4: Nutella Almond Cookies (BARU DARI GAMBAR) -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="nutella almond cookies cokelat kacang">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Nutellaalmondcookies.jpg" alt="Nutella Almond Cookies" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Spesial</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Nutella Almond Cookies</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Kue cokelat krispi berbalut renyahnya cincangan kacang dengan isian selai cokelat pekat di tengahnya.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 100.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Nutella Almond Cookies (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Nutella Almond Cookies (800 ml)', 100000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 5: Putri Salju (BARU DARI GAMBAR) -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="putri salju gula manis lembut">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Putrisalju.jpg" alt="Putri Salju" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Klasik</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Putri Salju</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Kue kacang lembut bertabur gula dingin yang manis, memberikan sensasi dingin meleleh di lidah.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 85.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Putri Salju (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Putri Salju (800 ml)', 85000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 6: Semprit Sagu Keju (BARU DARI GAMBAR) -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="semprit sagu keju gurih renyah lumer">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Semprit.jpg" alt="Semprit Sagu Keju" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Lumer</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Semprit Sagu Keju</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Tekstur super renyah dan lumer di lidah dipadu dengan kombinasi parutan keju gurih berlimpah.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 85.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Semprit Sagu Keju (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Semprit Sagu Keju (800 ml)', 85000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 7: Cadbury Cookies -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="cadbury cookies cokelat manis">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Cadburycookies.jpeg" alt="Cadbury Cookies" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Favorit</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Cadbury Cookies</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Kue kering cokelat lezat dengan potongan cokelat Cadbury asli yang lumer di mulut.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 110.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Cadbury Cookies (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Cadbury Cookies (800 ml)', 110000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 8: Coklat Mede -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="coklat mede kacang crunchy">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Coklatmede.jpeg" alt="Coklat Mede" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Crunchy</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Coklat Mede</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Perpaduan cokelat pekat yang manis dengan gurihnya kacang mede utuh pilihan.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 90.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Coklat Mede (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Coklat Mede (800 ml)', 90000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 9: Almond Crispy -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="almond crispy keju renyah">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Almondcrispy.jpg" alt="Almond Crispy" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Crispy</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Almond Crispy</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Kue tipis super renyah dengan taburan kacang almond dan keju gurih berkualitas.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 80.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Almond Crispy (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Almond Crispy (800 ml)', 80000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 10: Kacang Skippy Balut Cadbury -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="kacang skippy balut cadbury cokelat">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Kacang skippy balut Cadbury.jpg" alt="Kacang Skippy Balut Cadbury" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Unique Taste</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Skippy Cadbury</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Kue kacang Skippy yang gurih khas, dibalut dengan manisnya cokelat Cadbury nikmat.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 100.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Skippy Cadbury (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Skippy Cadbury (800 ml)', 100000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 11: Mede Crispi -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="mede crispi kacang renyah">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Medecrispi.jpg" alt="Mede Crispi" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Ringan</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Mede Crispi</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Camilan mede krispi tipis dengan rasa manis gurih yang sangat pas di lidah.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 110.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Mede Crispi (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Mede Crispi (800 ml)', 110000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kue 12: Nastar Cokelat Stik -->
+            <div class="cookie-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-amber-100/80 flex flex-col" data-name="nastar cokelat stik lumer">
+                <div class="relative h-72 overflow-hidden bg-amber-50">
+                    <img src="Nastarcoklatstik.jpg" alt="Nastar Cokelat Stik" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">Varian Baru</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-xl text-stone-900 mb-2">Nastar Cokelat Stik</h3>
+                        <p class="text-stone-500 text-sm mb-4 leading-relaxed">Inovasi nastar berbentuk stik dengan isian cokelat melimpah yang manis dan lezat.</p>
+                    </div>
+                    <div>
+                        <div class="bg-amber-50/70 rounded-xl p-3 mb-4 border border-amber-200/60 grid grid-cols-2 gap-2 text-center">
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 300 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 35.000</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-amber-100">
+                                <span class="block text-[10px] font-bold text-amber-700 uppercase">Toples 800 ml</span>
+                                <span class="text-sm font-bold text-stone-900">Rp 100.000</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart('Nastar Cokelat Stik (300 ml)', 35000)" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> 300 ml
+                            </button>
+                            <button onclick="addToCart('Nastar Cokelat Stik (800 ml)', 100000)" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-3 rounded-xl text-xs transition flex items-center justify-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-cart-plus"></i> 800 ml
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. CARA PEMESANAN & PEMBAYARAN -->
+    <section id="cara-order" class="bg-white py-16 border-y border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-700 font-semibold text-xs uppercase tracking-widest">Kemudahan Bertransaksi</span>
+                <h2 class="text-3xl font-bold text-stone-900 mt-1">Panduan Pemesanan & Pembayaran</h2>
+                <div class="w-16 h-1 bg-amber-600 mx-auto mt-3 rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-amber-50/50 p-8 rounded-3xl border border-amber-100">
+                    <h3 class="text-xl font-bold text-amber-900 mb-6 flex items-center">
+                        <i class="fa-solid fa-list-check text-amber-700 mr-3"></i> Langkah Pemesanan Online
+                    </h3>
+                    <ol class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">1</span>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Pilih Varian & Ukuran Toples</h4>
+                                <p class="text-xs text-stone-600 mt-0.5">Pilih kue favorit Anda serta ukuran Jar (300 ml / 800 ml) di katalog.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">2</span>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Masukkan ke Keranjang</h4>
+                                <p class="text-xs text-stone-600 mt-0.5">Klik tombol pemesanan untuk memasukkan kue ke keranjang belanja.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">3</span>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Isi Alamat & Metode Bayar</h4>
+                                <p class="text-xs text-stone-600 mt-0.5">Buka ikon keranjang di atas, lengkapi alamat dan pilih opsi pembayaran.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-amber-700 text-white rounded-full flex items-center justify-center font-bold text-sm mr-3">4</span>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Konfirmasi WhatsApp</h4>
+                                <p class="text-xs text-stone-600 mt-0.5">Admin akan mengonfirmasi rincian pesanan Anda dan siap diproses dipanggang segar.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="bg-amber-50/50 p-8 rounded-3xl border border-amber-100">
+                    <h3 class="text-xl font-bold text-amber-900 mb-6 flex items-center">
+                        <i class="fa-solid fa-wallet text-amber-700 mr-3"></i> Metode Pembayaran Praktis
+                    </h3>
+                    <p class="text-sm text-stone-600 mb-5">Kami mendukung berbagai metode pembayaran yang mudah dan fleksibel:</p>
+                    <div class="space-y-3">
+                        <div class="bg-white p-3.5 rounded-2xl border border-amber-100 flex justify-between items-center">
+                            <span class="font-semibold text-sm text-stone-800"><i class="fa-solid fa-building-columns text-amber-700 mr-2"></i> Transfer Bank</span>
+                            <span class="text-xs bg-amber-100 text-amber-900 font-semibold px-2.5 py-1 rounded-lg">BCA / Mandiri / BRI / BNI</span>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-amber-100 flex justify-between items-center">
+                            <span class="font-semibold text-sm text-stone-800"><i class="fa-solid fa-mobile-screen text-amber-700 mr-2"></i> E-Wallet</span>
+                            <span class="text-xs bg-amber-100 text-amber-900 font-semibold px-2.5 py-1 rounded-lg">GoPay / OVO / Dana / ShopeePay</span>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-amber-100 flex justify-between items-center">
+                            <span class="font-semibold text-sm text-stone-800"><i class="fa-solid fa-qrcode text-amber-700 mr-2"></i> Scan QRIS</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-lg">Semua Pembayaran QR</span>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-amber-100 flex justify-between items-center">
+                            <span class="font-semibold text-sm text-stone-800"><i class="fa-solid fa-hand-holding-dollar text-amber-700 mr-2"></i> Cash on Delivery</span>
+                            <span class="text-xs bg-amber-100 text-amber-900 font-semibold px-2.5 py-1 rounded-lg">COD Area Jakarta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TENTANG KAMI -->
+    <section id="tentang" class="py-20 bg-amber-100/40">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-amber-700 font-semibold text-xs uppercase tracking-widest">Kisah Kami</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-1">Tentang Riandy Cookies</h2>
+            <div class="h-1 w-20 bg-amber-600 mx-auto mt-3 rounded-full"></div>
+            
+            <p class="text-stone-700 leading-relaxed text-base md:text-lg mt-8">
+                Berawal dari dapur rumah, <strong class="text-amber-900">Riandy Cookies</strong> lahir dari kecintaan kami dalam memanggang kue kering yang lezat untuk keluarga. Filosofi kami sederhana: <em class="text-amber-800 font-semibold">"Homemade With Love"</em>. Kami percaya bahwa kue yang enak hanya bisa dihasilkan dari bahan-bahan segar berkualitas pilihan, proses higienis, dan dibuat dengan sepenuh hati.
+            </p>
+            <p class="text-stone-700 leading-relaxed text-base md:text-lg mt-4">
+                Setiap toples kue yang sampai ke tangan Anda diproduksi secara segar (*freshly baked*) tanpa bahan pengawet buatan, menjadikannya suguhan hangat terbaik untuk momen spesial bersama orang-orang tersayang atau sebagai hadiah tulus bagi kerabat Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. KONTAK & PEMESANAN DIRECT -->
+    <section id="kontak" class="py-20 max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-stone-900">Pemesanan & Kontak Direct</h2>
+        <div class="h-1 w-20 bg-amber-600 mx-auto mt-3 rounded-full"></div>
+        <p class="text-stone-500 mt-4 mb-10 text-sm md:text-base">Tertarik mencoba kelezatan kue buatan kami? Hubungi kami langsung via WhatsApp</p>
+        
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-md border border-amber-100 inline-block w-full max-w-md text-center">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 class="font-bold text-xl text-stone-900 mb-2">Order Langsung Via WhatsApp</h3>
+            <p class="text-stone-500 text-sm mb-6">Klik tombol di bawah ini untuk terhubung langsung dengan admin kami</p>
+            
+            <a href="https://wa.me/6282111526747?text=Halo%20Riandy%20Cookies,%20saya%20tertarik%20untuk%20memesan%20kuenya" target="_blank" class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-3.5 rounded-2xl shadow-md transition w-full space-x-2 text-base">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <span>Hubungi Admin WA</span>
+            </a>
+            
+            <div class="mt-8 pt-6 border-t border-stone-100 text-left text-xs md:text-sm text-stone-600 space-y-2.5">
+                <p><i class="fa-solid fa-location-dot text-amber-700 mr-2"></i> <strong>Lokasi:</strong> Jakarta, Indonesia</p>
+                <p><i class="fa-solid fa-clock text-amber-700 mr-2"></i> <strong>Jam Operasional:</strong> 10.00 - 16.00 WIB</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-10 text-center text-sm border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-stone-200 font-bold text-lg mb-1">Riandy Cookies</p>
+            <p class="text-amber-500 italic text-xs mb-4">Homemade With Love</p>
+            <p class="text-xs text-stone-500">&copy; 2026 Riandy Cookies. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL: LOGIN -->
+    <div id="loginModal" class="hidden fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 relative">
+            <button onclick="toggleModal('loginModal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="loginTab">
+                <h3 class="text-xl font-bold text-stone-900 mb-1">Masuk Akun Member</h3>
+                <p class="text-xs text-stone-500 mb-5">Silakan masuk untuk kemudahan pemesanan kue</p>
+                <form onsubmit="alert('Login berhasil!'); toggleModal('loginModal'); return false;" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Email</label>
+                        <input type="email" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Password</label>
+                        <input type="password" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white py-2.5 rounded-xl transition font-semibold text-sm shadow-sm">Masuk</button>
+                </form>
+                <p class="text-xs text-center text-stone-600 mt-4">Belum punya akun? <button onclick="switchAuthTab('register')" class="text-amber-700 font-bold underline">Daftar di sini</button></p>
+            </div>
+            <div id="registerTab" class="hidden">
+                <h3 class="text-xl font-bold text-stone-900 mb-1">Daftar Akun Baru</h3>
+                <p class="text-xs text-stone-500 mb-5">Lengkapi data untuk membuat akun baru</p>
+                <form onsubmit="alert('Registrasi berhasil! Silakan masuk.'); switchAuthTab('login'); return false;" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Nama Lengkap</label>
+                        <input type="text" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Email</label>
+                        <input type="email" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Password</label>
+                        <input type="password" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white py-2.5 rounded-xl transition font-semibold text-sm shadow-sm">Daftar</button>
+                </form>
+                <p class="text-xs text-center text-stone-600 mt-4">Sudah punya akun? <button onclick="switchAuthTab('login')" class="text-amber-700 font-bold underline">Masuk di sini</button></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: KERANJANG & CHECKOUT -->
+    <div id="cartModal" class="hidden fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleModal('cartModal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div id="cartView">
+                <h3 class="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-amber-700"></i> Keranjang Belanja
+                </h3>
+                <div id="cart-items" class="space-y-3 mb-6 divide-y divide-amber-100">
+                    <p class="text-stone-500 text-sm text-center py-6">Keranjang Anda masih kosong.</p>
+                </div>
+                <div class="flex justify-between items-center font-bold text-stone-900 border-t border-amber-200 pt-4 mb-6">
+                    <span>Total Pembayaran:</span>
+                    <span id="cart-total" class="text-lg text-amber-800">Rp 0</span>
+                </div>
+                <button onclick="goToCheckout()" id="checkoutBtn" disabled class="w-full bg-amber-700 hover:bg-amber-800 text-white py-3 rounded-2xl transition font-semibold text-sm disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+                    Lanjut ke Pembayaran
+                </button>
+            </div>
+
+            <div id="checkoutView" class="hidden">
+                <h3 class="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice text-amber-700"></i> Detail Pemesanan & Alamat
+                </h3>
+                <form onsubmit="processPayment(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Nama Lengkap</label>
+                        <input type="text" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Nomor WhatsApp Aktif</label>
+                        <input type="tel" required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Alamat Pengiriman Lengkap</label>
+                        <textarea required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm focus:outline-amber-600" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">Metode Pembayaran</label>
+                        <select required class="w-full p-2.5 border border-amber-200 rounded-xl text-sm bg-white focus:outline-amber-600">
+                            <option value="transfer">Transfer Bank (BCA / Mandiri / BRI / BNI)</option>
+                            <option value="e-wallet">E-Wallet (GoPay / OVO / Dana / ShopeePay)</option>
+                            <option value="qris">Scan QRIS</option>
+                            <option value="cod">Cash on Delivery (COD Jakarta)</option>
+                        </select>
+                    </div>
+                    <div class="bg-amber-50 p-3 rounded-xl text-xs text-stone-600 leading-normal border border-amber-200/70">
+                        *Kue buatan rumah (*homemade*) diproduksi segar sesuai pemesanan demi menjaga kelezatan dan kerenyahan terbaik.
+                    </div>
+                    <div class="flex space-x-3 pt-2">
+                        <button type="button" onclick="backToCart()" class="w-1/3 border border-amber-700 text-amber-800 py-2.5 rounded-xl text-xs font-semibold hover:bg-amber-50">Kembali</button>
+                        <button type="submit" class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-xs font-semibold shadow-md">Konfirmasi & Bayar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let cart = [];
+
+        // FITUR PENCARIAN REAL-TIME
+        function filterMenu() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.getElementsByClassName('cookie-card');
+            const clearBtn = document.getElementById('clearBtn');
+            const searchResultText = document.getElementById('searchResultText');
+
+            if (input.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+                searchResultText.classList.add('hidden');
+            }
+
+            let visibleCount = 0;
+            for (let i = 0; i < cards.length; i++) {
+                const nameData = cards[i].getAttribute('data-name').toLowerCase();
+                const cardTitle = cards[i].querySelector('h3').innerText.toLowerCase();
+
+                if (nameData.includes(input) || cardTitle.includes(input)) {
+                    cards[i].style.display = "flex";
+                    visibleCount++;
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+
+            if (input.length > 0) {
+                searchResultText.classList.remove('hidden');
+                searchResultText.innerText = `Menampilkan ${visibleCount} dari ${cards.length} kue untuk kata kunci "${input}"`;
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterMenu();
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+            if (modalId === 'cartModal') {
+                backToCart();
+            }
+        }
+
+        function switchAuthTab(tab) {
+            if (tab === 'register') {
+                document.getElementById('loginTab').classList.add('hidden');
+                document.getElementById('registerTab').classList.remove('hidden');
+            } else {
+                document.getElementById('registerTab').classList.add('hidden');
+                document.getElementById('loginTab').classList.remove('hidden');
+            }
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 bg-amber-800 text-white text-xs px-4 py-3 rounded-2xl shadow-xl z-50 flex items-center gap-2 transition duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i> ${name} telah ditambahkan ke keranjang!`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-stone-500 text-sm text-center py-6">Keranjang Anda masih kosong.</p>';
+                cartCount.innerText = '0';
+                cartTotal.innerText = 'Rp 0';
+                checkoutBtn.disabled = true;
+                return;
+            }
+
+            let totalItems = 0;
+            let totalPrice = 0;
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                totalItems += item.quantity;
+                totalPrice += item.price * item.quantity;
+
+                cartItemsContainer.innerHTML += `
+                    <div class="flex justify-between items-center py-3 ${index > 0 ? 'border-t border-amber-100' : ''}">
+                        <div>
+                            <h4 class="font-bold text-xs md:text-sm text-stone-900">${item.name}</h4>
+                            <p class="text-xs text-amber-700 font-medium">Rp ${item.price.toLocaleString('id-ID')} x ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="changeQuantity('${item.name}', -1)" class="bg-amber-100 text-amber-900 w-6 h-6 rounded-lg text-xs font-bold hover:bg-amber-200 flex items-center justify-center">-</button>
+                            <span class="text-xs font-semibold px-1">${item.quantity}</span>
+                            <button onclick="changeQuantity('${item.name}', 1)" class="bg-amber-100 text-amber-900 w-6 h-6 rounded-lg text-xs font-bold hover:bg-amber-200 flex items-center justify-center">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartCount.innerText = totalItems;
+            cartTotal.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+            checkoutBtn.disabled = false;
+        }
+
+        function changeQuantity(name, amount) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity += amount;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+                updateCartUI();
+            }
+        }
+
+        function goToCheckout() {
+            document.getElementById('cartView').classList.add('hidden');
+            document.getElementById('checkoutView').classList.remove('hidden');
+        }
+
+        function backToCart() {
+            document.getElementById('checkoutView').classList.add('hidden');
+            document.getElementById('cartView').classList.remove('hidden');
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            alert('Pesanan Anda berhasil dikonfirmasi! Terima kasih telah memesan di Riandy Cookies - Homemade With Love.');
+            cart = [];
+            updateCartUI();
+            toggleModal('cartModal');
+        }
+    </script>
+</body>
+</html>
